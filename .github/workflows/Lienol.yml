@@ -70,7 +70,8 @@ jobs:
         cd openwrt
         curl -o OpenClash-master.zip https://codeload.github.com/vernesong/OpenClash/zip/refs/heads/master
         unzip OpenClash-master.zip
-        cp -r OpenClash-master/luci-app-openclash package
+        cp -r OpenClash-master/luci-app-openclash feeds/luci/applications
+        ln -s ../../../feeds/luci/applications/luci-app-openclash package/feeds/luci/luci-app-openclash
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
