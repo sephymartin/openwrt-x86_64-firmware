@@ -67,7 +67,10 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P1_SH
     - name: add openclash package
       run: |
-        cd openwrt && git clone https://github.com/vernesong/OpenClash.git && cp -r OpenClash/luci-app-openclash package
+        cd openwrt
+        curl -o OpenClash-master.zip https://codeload.github.com/vernesong/OpenClash/zip/refs/heads/master
+        unzip OpenClash-master.zip
+        cp -r OpenClash-master/luci-app-openclash package
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
