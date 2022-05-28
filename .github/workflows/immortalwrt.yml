@@ -73,12 +73,6 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
-      
-    - name: add openclash package
-      run: |
-        cd openwrt
-        git clone https://github.com/uamrws/luci-app-adguardhome.git feeds/luci/applications/luci-app-adguardhome
-        ln -s ../../../feeds/luci/applications/luci-app-adguardhome package/feeds/luci/luci-app-adguardhome
 
     - name: Load custom configuration
       run: |
